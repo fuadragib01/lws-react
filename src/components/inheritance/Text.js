@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import Emoji from "./Emoji";
 
 class Text extends Emoji {

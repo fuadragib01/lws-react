@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 
 class Emoji extends Component {
 	addEmoji = (text, emoji) => `${emoji} ${text} ${emoji}`;
