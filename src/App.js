@@ -4,7 +4,7 @@ import Clock from "./components/Clock";
 function App() {
 	return (
 		<div>
-			<Clock locale="bn-BD">Ragib - </Clock>
+			<Clock>Ragib - </Clock>
 		</div>
 	);
 }
