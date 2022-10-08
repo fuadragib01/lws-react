@@ -3,27 +3,32 @@ import Counter from "./Counter";
 import HoverCounter from "./HoverCounter";
 import ThemeContext from "../contexts/ThemeContext";
 
-const Content = () => {
-	return (
-		<div>
-			<h1>This is a content</h1>
-			<Counter
-				render={(counter, incrementCount) => {
-					return (
-						<ThemeContext.Consumer>
-							{({ theme }) => (
-								<HoverCounter
-									count={counter}
-									incrementCount={incrementCount}
-									theme={theme}
-								/>
-							)}
-						</ThemeContext.Consumer>
-					);
-				}}
-			/>
-		</div>
-	);
-};
+class Content extends React.Component {
+	componentDidMount() {
+		console.log(this.context);
+	}
+	render() {
+		const { theme, switchTheme } = this.context;
+		return (
+			<div>
+				<h1>This is a content</h1>
+				<Counter
+					render={(counter, incrementCount) => {
+						return (
+							<HoverCounter
+								count={counter}
+								incrementCount={incrementCount}
+								theme={{ theme }}
+								switchTheme={switchTheme}
+							/>
+						);
+					}}
+				/>
+			</div>
+		);
+	}
+}
 
 export default Content;
+
+Content.contextType = ThemeContext;
